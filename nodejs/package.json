@@ -1,0 +1,18 @@
+{
+  "name": "api-rest-nodejs",
+  "version": "1.0.0",
+  "description": "API REST for Research and Learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No\""
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "nodejs",
+    "learning",
+    "research"
+  ],
+  "author": "Bl4ky113",
+  "license": "GPL-2.0-only"
+}
