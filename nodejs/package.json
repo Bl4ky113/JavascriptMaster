@@ -4,7 +4,8 @@
   "description": "API REST for Research and Learning",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"No\""
+    "test": "echo \"No\"",
+    "start": "nodemon index.js"
   },
   "keywords": [
     "api",
@@ -14,5 +15,14 @@
     "research"
   ],
   "author": "Bl4ky113",
-  "license": "GPL-2.0-only"
+  "license": "GPL-2.0-only",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "connect-multiparty": "^2.2.0",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
 }
