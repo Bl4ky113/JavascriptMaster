@@ -7,6 +7,9 @@ End:
 
 Sessions NodeJS:
 - 03/19/2023
+- 03/20/2023
+- 03/21/2023
+- 03/25/2023
 
 Más que obvio, me voy a saltar buena parte del curso, incluyendo:
 - Repaso CSS
@@ -110,5 +113,68 @@ req.body.valor;
 u si necesitamos algo del query de la url de la api
 req.query.valor;
 
+## Node + Mongo Models
 
+Para crear models para nuestros datos, asi evitar que estos queden cómo cualquier cosa, vamos a hacerlo en una carpeta 
+separada de nuestro proyecto llamada models. Dentro, vamos a crear un modelo por cada archivo. 
+Importando mongoose y usando la clase Schema, donde le pasamos dentro de un json los tipos de nuestro modelo,
+siendo tipos de datos generales cómo:
+- String
+- Number
+- Fechas de Mongo
+- Floats
+- Arrays 
+- Objects
+
+Ahí lo vamos a importar usando: 
+module.exports = mongoose.model('nombreModel', ModeloDefinido);
+
+El nombre del modelo es lo que mongoose y mongodb va a usar para nuestra collection, y modelo para nuestros datos. 
+Este es bastante resistente u safefail. Ya que siempre va a poner todo en plural y en minusculas, cómo una collection 
+dentro de mongo.
+
+## MVC
+
+Model View Controller
+
+Este sistema de arquitecutra En el cual el usuario interactua solamente indirectamente con el modelo y db. 
+Interactuando con controllers, que procesan la entrada de datos, y recibiendo el output de una vista que llama y obtiene los 
+datos del modelo.
+
+## Controllers
+
+Para trabajar con controllers, lo mejor es crear una nueva carpeta llamada controllers. Estos generalmente simplemente 
+son obj que tienen functions que deberían manejar cada ruta u endpoint de la API.
+Exportar con modules el obj y usarlo en el projecto.
+
+Pero además de modularizar los controllers, tambien deberíámos hacer una carpeta y archivos para las rutas de la API.
+Así tenemos todo más organizado. 
+Donde simplemente vamos a crear una instancia de express.Router, y vamos a agregar las rutas con sus respectivos metodos.
+Exportar la instancia de router para poder usarla en app.js
+
+En App.js vamos a agregarlo a la app cómo si fuera un middleware, usando use('/ruta', router), pasando la ruta
+Y listo, ahora podemos usar la ruta con nuestro controller.
+
+### Guardar en Mongoose
+
+Podemos acceder a los valores del request usando req.body, es recomendado crear un obj para filtrar los datos del body para 
+tener un minimo de restricción al respetar el Model. Aunque Mongoose directamente ignora valores no definidos.
+
+Ahora Save ya no recibe callbacks. Jueputa, el curso esta desactualizado, el peor error posible, gonorrea David que me
+dijo que hiciera este curso, pero grande David que me dijo que debía mirar solo el 40% - 60% del curso y mirar por mi 
+cuenta. Pero que Gonorrea David que me dijo eso aun así teniendo en cuenta que el curso no viene cómo index u introducción,
+si no cómo sessions practicas de desarrollo de un projecto MEAN.
+
+## Obtener Docs en Mongoose
+Simplemente usar un find, se puede implementar diferentes metodos y limpiezas del query, como sort o limit.
+
+## Update
+A que adivina? Misma cosa, nuevo video para mostrar cómo carajo solo se hace un cambio de metodo.
+Pero cómo minimo update tiene una opción, y es que por default devuelve el doc antes del cambio, 
+se le puede pasar un obj con { new: true } para que pase el doc con los cambios.
+
+## Delete
+...
+
+## Upload de Blobs
 
