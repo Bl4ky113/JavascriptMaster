@@ -3,13 +3,15 @@
 # By Victor Robles
 
 Start: 03/18/2023
-End:
+End: 03/26/2023
+Time: 8 days, not bad.
 
 Sessions NodeJS:
 - 03/19/2023
 - 03/20/2023
 - 03/21/2023
 - 03/25/2023
+- 03/26/2023
 
 Más que obvio, me voy a saltar buena parte del curso, incluyendo:
 - Repaso CSS
@@ -177,4 +179,30 @@ se le puede pasar un obj con { new: true } para que pase el doc con los cambios.
 ...
 
 ## Upload de Blobs
+Para hacer upload, hay varias lib y modulos para implementarlo con NodeJS, pero 
+nosotros vamos a usar connect-multipart.
 
+Para usarla cómo middleware, vamos a crear una instancia de multiplart donde en las options mandamos el uploadDir,
+donde los archivos pasaran en nuestro servidor de NodeJS. Esto lo pasamos a una ruta cómo primer arg u antes del 
+controller.
+
+Ahora podemos acceder a los files usando req.files donde vamos a poder enviar los archivos cómo un 
+formulario, y por cada key, se nos enviara una lista de archivos.
+
+Desde ahí nos manda el nombre del field, fileName, path dentro del server, tipo, tamaño y headers.
+
+Para poder usarlo en Mongo, vamos a simplemente obtener el nombre con el que se ha guardado en el server, para despues
+llamarlo supongo.
+
+## Mejoras de Upload de Blebs
+
+Finalmente un avistamiento de FS, un modulo de NodeJS que nos permite modificar el file system de nuestro OS, o nuestro servidor de NodeJS.
+
+Vamos a agregar una condicional para que dentro de images, siempre se suban imagenes y no cualquier archivo.
+
+connect multipart siempre va a guardar los archivos cuando los reciva, por eso vamos a usar fs para borrarlos. 
+Simplemente vamos a usar de fs.unlink(path, callback);
+
+Y ya, es async el unlink, por eso el callback.
+
+## TERMINAMOS NODEJS PAPÁ
